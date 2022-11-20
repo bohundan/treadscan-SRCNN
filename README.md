@@ -3,7 +3,7 @@
 [Treadscan](https://github.com/bohundan/treadscan) is a Python package containing computer vision tools for extracting tire treads. Sometimes, the scanned treads are in lower quality, because a vehicle hasn't stopped in the correct position, or the camera was out of focus. Applying upsampling to these images might help mitigate these issues.
 
 Example of occurence of lower resolution tire treads (vehicles stopped far away, in the other lane):
-![Treadscan tire segmenting](https://github.com/bohundan/treadscan-SRCNN/blob/main/paper_src/media/treadscan.gif)
+![Treadscan tire segmenting](https://raw.githubusercontent.com/bohundan/treadscan-SRCNN/main/paper_src/media/treadscan.gif)
 
 Quick summary of this project is contained in [this paper](https://github.com/bohundan/treadscan-SRCNN/blob/main/paper.pdf) in the root of the repository. It was made as semestral work for Computational Intelligence Methods course at FIT CTU.
 
@@ -29,7 +29,7 @@ upsampled_image = srcnn.upsample(low_resolution_image, factor=4, batch_size=100)
 There is some tradeoff between sharper image and added noise.
 <div align="center">
   <p>
-    <img src="https://github.com/bohundan/treadscan-SRCNN/blob/main/paper_src/media/upscaled-original.jpg" title="Original" height=500/>
-    <img src="https://github.com/bohundan/treadscan-SRCNN/blob/main/paper_src/media/upscaled-250epochs.jpg" title="Upsampled" height=500/>
+    <img src="https://raw.githubusercontent.com/bohundan/treadscan-SRCNN/main/paper_src/media/upscaled-original.jpg" title="Original" height=500/>
+    <img src="https://raw.githubusercontent.com/bohundan/treadscan-SRCNN/main/paper_src/media/upscaled-250epochs.jpg" title="Upsampled" height=500/>
   </p>
 </div>
