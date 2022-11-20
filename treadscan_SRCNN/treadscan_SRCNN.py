@@ -1,4 +1,5 @@
 import os
+import warnings
 
 import cv2
 import numpy as np
@@ -76,13 +77,15 @@ class SRCNN(torch.nn.Module):
             if os.path.isfile(weights):
                 self.load_state_dict(torch.load(weights))
             else:
-                print('File with pretrained weights does not exist, initialized empty model.')
+                warnings.warn('File with pretrained weights does not exist, initialized empty model.')
         else:
-            print('No weights loaded, initialized empty model. You can find pretrained weights for download at https://github.com/bohundan/treadscan-SRCNN/tree/master/pretrained_models')
+            warnings.warn('No weights loaded, initialized empty model. You can find pretrained weights for download at https://github.com/bohundan/treadscan-SRCNN/tree/master/pretrained_models')
 
         self.device = 'cuda' if torch.cuda.is_available() and use_cuda else 'cpu'
         self.to(self.device)
-        print(f'Using device: {self.device}.')
+
+        if use_cuda and self.device == 'cpu':
+            warnings.warn('Using CPU, CUDA is not available.')
 
     def forward(self, x):
         x = torch.nn.functional.relu(self.conv1(x))
@@ -94,7 +97,7 @@ class SRCNN(torch.nn.Module):
         """Upscale image by factor, specify smaller batch_size so conserve memory"""
 
         if len(image.shape) != 2:
-            print('You are attempting to upsample a color image. This model is suited for upsampling only grayscale images. To convert your image from for example BGR to grayscale, use cv2.cvtColor(my_image, cv2.COLOR_BGR2GRAY).')
+            warnings.warn('You are attempting to upsample a color image. This model is suited for upsampling only grayscale images. To convert your image from for example BGR to grayscale, use cv2.cvtColor(my_image, cv2.COLOR_BGR2GRAY).')
             return image
 
         with torch.no_grad():
