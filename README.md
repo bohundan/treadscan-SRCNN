@@ -1,9 +1,9 @@
-# Treadscan SRCNN
+# TreadscanSRCNN
 
 [Treadscan](https://github.com/bohundan/treadscan) is a Python package containing computer vision tools for extracting tire treads. Sometimes, the scanned treads are in lower quality, because a vehicle hasn't stopped in the correct position, or the camera was out of focus. Applying upsampling to these images might help mitigate these issues.
 
 Example of occurence of lower resolution tire treads (vehicles stopped far away, in the other lane):
-![Treadscan tire segmenting](https://raw.githubusercontent.com/bohundan/treadscan-SRCNN/main/paper_src/media/treadscan.gif)
+<img src="https://raw.githubusercontent.com/bohundan/treadscan-SRCNN/main/paper_src/media/treadscan.gif" title="Treadscan tire segmenting" height=500/>
 
 Quick summary of this project is contained in [this paper](https://github.com/bohundan/treadscan-SRCNN/blob/main/paper.pdf) in the root of the repository. It was made as semestral work for Computational Intelligence Methods course at FIT CTU.
 
@@ -11,7 +11,7 @@ Quick summary of this project is contained in [this paper](https://github.com/bo
 
 ```python
 import cv2
-from treadscan_SRCNN import SRCNN
+from treadscanSRCNN import SRCNN
 
 low_resolution_image = cv2.imread('low_resolution_image.png', cv2.IMREAD_GRAYSCALE)
 
